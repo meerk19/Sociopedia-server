@@ -3,7 +3,6 @@ const catchAsync = require("../utils/catchAsync");
 
 // READ
 const getUser = catchAsync(async (req, res, next) => {
-  console.log(req.params.id);
   const user = await User.findById(req.params.id);
   res.status(200).json(user);
 });
@@ -25,7 +24,6 @@ const getUserFriends = catchAsync(async (req, res, next) => {
 // UPDATE
 const addRemoveFriend = async (req, res, next) => {
   const { friendId } = req.params;
-  console.log(friendId);
   const user = await User.findById(req.user._id);
   const friend = await User.findById(friendId);
 

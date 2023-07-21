@@ -30,7 +30,7 @@ const User=require('../Models/UserModel')
 
  const getUserPosts = catchAsync(async (req, res, next) => {
   const { userId } = req.params;
-  console.log(`user id is ${userId}`);
+
   const post = await Post.find({ userId });
   res.status(200).json(post);
 });

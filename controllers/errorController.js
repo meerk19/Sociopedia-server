@@ -16,8 +16,7 @@ const sendErrorProd = (err, res) => {
 };
 
 const sendErrorDev = (err, res) => {
-  console.log(err);
-  res.status(err.statusCode).json({
+    res.status(err.statusCode).json({
     status: err.status || 'error',
     error: err,
     message: err.message,
@@ -54,7 +53,6 @@ const globalErrorHandler = (err, req, res, next) => {
     }
     sendErrorProd(error, res);
   } else if (process.env.NODE_ENV === 'development') {
-    console.log('in error controller');
     sendErrorDev(err, res);
   }
 };
